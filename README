@@ -1,4 +1,4 @@
-This tools helps an authorized member of IEEE xplore to download every PDF that is part of an ebook.
+These tools helps an authorized member of IEEE xplore to download every PDF that is part of an ebook.
 
 The tool 'countpdfs' obviously counts the number of PDFs of which an ebook consists, while 'ieeepdf' downloads them.
 
