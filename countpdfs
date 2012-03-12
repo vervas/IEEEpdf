@@ -1,0 +1,32 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then 
+	echo "Usage: $0 'http://ieeexplore.ieee.org/servlet/opac?bknumber=9999999'" 1>&2
+	exit 2
+fi
+
+bid=$(echo $1 | sed 's/.*=//g' | sed 's/\&.*//g')
+
+if echo $bid | grep "^[0-9]*$" ; then
+	echo "Parsing.."
+else
+	echo "Invalid URL" 1>&2
+	exit 2
+fi
+
+url="http://ieeexplore.ieee.org/ebooks/$bid"
+
+wget -q $url
+
+if [ $? -ne 0 ]; then
+
+	echo "Bad URL." 1>&2
+	exit 2
+
+else
+	
+	grep '.pdf' $bid | sed 's/^.*HREF=\"\(.*\)\"\ NAME.*$/\1/' | wc -l
+	
+	rm $bid
+	
+fi
