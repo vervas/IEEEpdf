@@ -1,0 +1,9 @@
+This tools helps an authorized member of IEEE xplore to download every PDF that is part of an ebook.
+
+The tool 'countpdfs' obviously counts the number of PDFs of which an ebook consists, while 'ieeepdf' downloads them.
+
+They are used like:
+
+user$ ieeepdf 'http://ieeexplore.ieee.org/servlet/opac?bknumber=1234567'
+
+Please email me for problems, ideas, etc..
